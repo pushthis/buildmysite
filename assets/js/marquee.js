@@ -1,4 +1,5 @@
 const DATA_BASE = '/dist';
+const GOATCOUNTER_TOTAL = 'https://terpinedream.goatcounter.com/counter/TOTAL.json';
 
 async function fetchIndex() {
   const res = await fetch(`${DATA_BASE}/index.json`);
@@ -6,17 +7,23 @@ async function fetchIndex() {
   return res.json();
 }
 
-function getVisitorCount() {
-  if (typeof window.goatcounter === 'undefined') return '—';
-  const count = window.goatcounter?.get?.('total');
-  return count != null ? String(count) : '—';
+async function getVisitorCount() {
+  try {
+    const res = await fetch(GOATCOUNTER_TOTAL);
+    if (!res.ok) return '—';
+    const data = await res.json();
+    // GoatCounter returns strings like "1,234"
+    return data.count || data.count_unique || '—';
+  } catch {
+    return '—';
+  }
 }
 
 async function initMarquee() {
   const el = document.getElementById('marquee-content');
   if (!el) return;
 
-  const index = await fetchIndex();
+  const [index, visitors] = await Promise.all([fetchIndex(), getVisitorCount()]);
   const count = index.length;
   const last = index.length > 0
     ? index.reduce((a, b) => (a.addedAt > b.addedAt ? a : b))
@@ -24,7 +31,6 @@ async function initMarquee() {
   const lastLabel = last
     ? `${last.name}${last.location ? ` (${last.location})` : ''}`
     : 'none yet';
-  const visitors = getVisitorCount();
 
   const text = [
     `Contributions: ${count}`,

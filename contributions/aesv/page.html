@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>aesv</title>
+<style>
+html,body{margin:0;height:100%;background:#f2efe6;color:#111;overflow:hidden;font:13px/1.5 Futura,Jost,"Avenir Next","Century Gothic",sans-serif}
+body{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px}
+.f{display:flex;align-items:center;gap:2px;width:92vw;height:64vh}
+p{margin:0;letter-spacing:.14em;text-transform:lowercase}
+p i{font-style:normal;color:#1f4aa8;padding:0 .4em}
+b{--k:0;flex:1;height:calc(18vh + var(--k)*46vh);background:#111;opacity:calc(.22 + var(--k)*.78);transition:height 1.4s cubic-bezier(.3,.7,.3,1),opacity 1.4s,background .6s;transition-delay:.2s}
+b:hover{--k:1;background:#d9291c;transition-delay:0s;transition-duration:.45s}
+b:hover + b,b:has( + b:hover){--k:1.00;transition-delay:0.04s;transition-duration:.45s}
+b:hover + b + b,b:has( + b + b:hover){--k:0.90;transition-delay:0.08s;transition-duration:.45s}
+b:hover + b + b + b,b:has( + b + b + b:hover){--k:0.80;transition-delay:0.12s;transition-duration:.45s}
+b:hover + b + b + b + b,b:has( + b + b + b + b:hover){--k:0.70;transition-delay:0.16s;transition-duration:.45s}
+b:hover + b + b + b + b + b,b:has( + b + b + b + b + b:hover){--k:0.60;transition-delay:0.20s;transition-duration:.45s}
+b:hover + b + b + b + b + b + b,b:has( + b + b + b + b + b + b:hover){--k:0.50;transition-delay:0.24s;transition-duration:.45s}
+b:hover + b + b + b + b + b + b + b,b:has( + b + b + b + b + b + b + b:hover){--k:0.40;transition-delay:0.28s;transition-duration:.45s}
+b:hover + b + b + b + b + b + b + b + b,b:has( + b + b + b + b + b + b + b + b:hover){--k:0.30;transition-delay:0.32s;transition-duration:.45s}
+b:hover + b + b + b + b + b + b + b + b + b,b:has( + b + b + b + b + b + b + b + b + b:hover){--k:0.20;transition-delay:0.36s;transition-duration:.45s}
+b:hover + b + b + b + b + b + b + b + b + b + b,b:has( + b + b + b + b + b + b + b + b + b + b:hover){--k:0.10;transition-delay:0.40s;transition-duration:.45s}
+@media (max-height:300px){p{display:none}.f{height:100vh}}
+</style>
+</head>
+<body>
+<p>hover me</p>
+<div class="f"><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b><b></b></div>
+<p>made by axel<i>|</i>aesv.io</p>
+</body>
+</html>

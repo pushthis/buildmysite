@@ -1,0 +1,394 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ---- Retro site shell (index, explore) ---- */
+
+body.retro-site {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", cursive;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #eee6ff;
+  background: #0a0014 url("../background.jpg") center top fixed;
+  background-size: cover;
+}
+
+body.retro-site a {
+  color: #66ffff;
+}
+
+body.retro-site a:visited {
+  color: #ff66ff;
+}
+
+body.retro-site a:hover {
+  color: #ffff66;
+}
+
+.retro-wrap {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 0 1rem 3rem;
+}
+
+.retro-header {
+  text-align: center;
+  padding: 1rem 0 0.5rem;
+}
+
+.retro-banner {
+  max-width: 100%;
+  height: auto;
+  image-rendering: auto;
+}
+
+.retro-title {
+  font-family: "Times New Roman", Times, Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: bold;
+  color: #ff99ff;
+  text-shadow: 2px 2px 0 #660066;
+  margin: 0.75rem 0 0.5rem;
+  letter-spacing: 0.02em;
+}
+
+.retro-intro {
+  font-size: 1rem;
+  color: #ddd0ff;
+  margin: 0;
+  max-width: 36rem;
+  margin-inline: auto;
+}
+
+.retro-nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 1rem 0;
+}
+
+.retro-btn {
+  display: inline-block;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.95rem;
+  font-weight: bold;
+  color: #000 !important;
+  background: #c0c0c0;
+  border: 3px outset #dfdfdf;
+  padding: 0.35rem 1rem;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.3;
+}
+
+.retro-btn:hover {
+  background: #d4d4d4;
+  color: #000 !important;
+}
+
+.retro-btn:active {
+  border-style: inset;
+  background: #a8a8a8;
+}
+
+.retro-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  border-style: inset;
+}
+
+.retro-hr {
+  border: none;
+  border-top: 3px double #9966cc;
+  margin: 1rem 0;
+}
+
+.retro-construction-wrap {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.retro-main {
+  padding: 0.5rem 0;
+}
+
+.retro-panel {
+  background: rgba(10, 0, 30, 0.85);
+  border: 4px ridge #9966cc;
+  padding: 1rem;
+  text-align: center;
+}
+
+.retro-panel-title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.35rem;
+  color: #ffccff;
+  margin: 0 0 0.25rem;
+}
+
+.retro-panel-desc {
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+  color: #bbaadd;
+}
+
+.retro-construction {
+  flex-shrink: 0;
+}
+
+.retro-blurb {
+  text-align: center;
+  margin: 1.25rem 0 0;
+  font-size: 0.95rem;
+  color: #ccb8ff;
+}
+
+.retro-footer-links {
+  margin: 0 0 0.75rem;
+  font-size: 0.95rem;
+}
+
+.retro-footer-links a {
+  font-weight: bold;
+}
+
+.retro-footer {
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.8rem;
+  color: #9988bb;
+  padding: 0.5rem 0;
+}
+
+.retro-footer-small {
+  margin: 0.35rem 0;
+  font-size: 0.75rem;
+}
+
+.retro-marquee {
+  background: #110022;
+  border-bottom: 3px double #ff66ff;
+  color: #00ff99;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.85rem;
+  font-weight: bold;
+}
+
+.retro-page-info {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 0.9rem;
+  color: #ffccff;
+}
+
+body.retro-site #map {
+  height: 400px;
+  border: 4px inset #663399;
+  border-radius: 0;
+  margin: 0;
+  background: #1a0033;
+}
+
+body.retro-site .explore-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 0 0 1rem;
+}
+
+body.retro-site .explore-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+body.retro-site .explore-tile {
+  background: rgba(10, 0, 30, 0.9);
+  border: 3px groove #9966cc;
+  border-radius: 0;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+}
+
+body.retro-site .explore-tile:hover {
+  border-color: #ff66ff;
+  box-shadow: 0 0 8px #ff66ff;
+}
+
+body.retro-site .explore-tile-label {
+  padding: 0.5rem 0.75rem;
+  font-family: "Times New Roman", Times, serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #ffccff;
+  background: #220044;
+  border-bottom: 2px solid #6633cc;
+}
+
+body.retro-site .explore-tile iframe {
+  width: 100%;
+  height: 140px;
+  border: none;
+  display: block;
+  background: #fff;
+  pointer-events: none;
+}
+
+body.retro-site .view-error {
+  color: #ff6666;
+  font-family: "Comic Sans MS", cursive;
+}
+
+body.retro-site > .floating-button {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+}
+
+/* ---- Marquee (shared) ---- */
+
+.marquee-bar {
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 0.45rem 0;
+}
+
+.marquee-inner {
+  display: inline-block;
+  animation: marquee 28s linear infinite;
+  padding-left: 100%;
+}
+
+.marquee-inner span {
+  margin-right: 3rem;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* ---- Full-screen contribution view ---- */
+
+html,
+body.view-page {
+  margin: 0;
+  padding: 0;
+}
+
+body.view-page {
+  overflow: hidden;
+  height: 100vh;
+  height: 100dvh;
+  font-family: system-ui, sans-serif;
+}
+
+body.view-page #view-content {
+  position: fixed;
+  inset: 0;
+}
+
+body.view-page .view-frame-wrap {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0;
+  background: #fff;
+}
+
+body.view-page .view-frame-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+}
+
+body.view-page .view-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin: 0;
+  color: #c00;
+}
+
+.view-floating-nav {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.floating-button {
+  display: inline-block;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #000 !important;
+  background: #c0c0c0;
+  border: 3px outset #dfdfdf;
+  padding: 0.4rem 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1.3;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.floating-button:hover {
+  background: #d4d4d4;
+  color: #000 !important;
+  transform: none;
+}
+
+.floating-button:active {
+  border-style: inset;
+  background: #a8a8a8;
+}
+
+.view-frame-wrap {
+  border: 1px solid #999;
+  overflow: hidden;
+  background: #fff;
+}
+
+.view-frame-wrap iframe {
+  width: 100%;
+  height: 480px;
+  border: none;
+  display: block;
+}
+
+.view-error {
+  padding: 2rem;
+  text-align: center;
+}
+
+body:not(.view-page):not(.retro-site) > .floating-button {
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 1000;
+}
+
+@media (max-width: 520px) {
+  .retro-title {
+    font-size: 1.35rem;
+  }
+
+  body.retro-site #map {
+    height: 280px;
+  }
+}

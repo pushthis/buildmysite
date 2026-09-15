@@ -1,0 +1,84 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches: [main]
+  # Merges via GITHUB_TOKEN (automerge-action) do not fire push events
+  workflow_run:
+    workflows: ["Auto Merge"]
+    types: [completed]
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    name: build-and-deploy
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Wait for merge to land on main
+        if: github.event_name == 'workflow_run'
+        run: sleep 15
+
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Sync latest main
+        if: github.event_name == 'workflow_run'
+        run: git pull origin main
+
+      - name: List contributions
+        run: find contributions -type f | sort || true
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Restore geocode cache
+        uses: actions/cache@v4
+        with:
+          path: data/geocode-cache.json
+          key: geocode-v1-${{ hashFiles('contributions/**/meta.json') }}
+          restore-keys: |
+            geocode-v1-
+
+      - name: Build site
+        env:
+          NOMINATIM_USER_AGENT: buildmysite/1.0 (${{ github.repository }})
+        run: node scripts/build.mjs
+
+      - name: Prepare Pages artifact
+        run: |
+          mkdir -p _site
+          cp -r dist _site/dist
+          cp index.html explore.html view.html _site/
+          cp -r assets _site/
+          touch _site/.nojekyll
+          echo "Deployed files:"
+          find _site -type f | sort
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

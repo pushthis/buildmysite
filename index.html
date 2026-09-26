@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>~*~ Build My Site ~*~</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script data-goatcounter="https://terpinedream.goatcounter.com/count"
+          async src="https://gc.zgo.at/count.js"></script>
+</head>
+<body class="retro-site">
+  <div class="marquee-bar retro-marquee" aria-hidden="true">
+    <div class="marquee-inner" id="marquee-content">
+      <span>*** loading stats... ***</span>
+    </div>
+  </div>
+
+  <div class="retro-wrap">
+    <header class="retro-header">
+      <img src="assets/banner.gif" alt="Build My Site!" class="retro-banner" width="480" height="120">
+      <h1 class="retro-title">Welcome to Build My Site</h1>
+      <p class="retro-intro">
+        A community-built webpage where <b>anyone</b> can add their own page.<br>
+        Fork the repo, drop in your HTML, open a pull request, and watch it go live.
+      </p>
+    </header>
+
+    <nav class="retro-nav" aria-label="Site navigation">
+      <a href="index.html" class="retro-btn">Home</a>
+      <a href="explore.html" class="retro-btn">Explore</a>
+      <a href="https://github.com/pushthis/buildmysite/blob/main/CONTRIBUTING.md" class="retro-btn">Add Your Page</a>
+    </nav>
+
+    <hr class="retro-hr">
+
+    <main class="retro-main">
+      <div class="retro-construction-wrap">
+        <img src="assets/underconstruction.gif" alt="Under construction" class="retro-construction" width="120" height="120">
+      </div>
+
+      <div class="retro-panel">
+        <h2 class="retro-panel-title">~ Contributor Map ~</h2>
+        <p class="retro-panel-desc">See where people are building from around the world.</p>
+        <div id="map" role="region" aria-label="Contributor map"></div>
+      </div>
+
+      <p class="retro-blurb">
+        New pages appear automatically after merge.
+        Hit <b>Random Page</b> and see what strangers built.
+      </p>
+    </main>
+
+    <hr class="retro-hr">
+
+    <footer class="retro-footer">
+      <p class="retro-footer-links">
+        <a href="https://tiktok.com/@thinkpad.enjoyer">TikTok</a>
+        &nbsp;|&nbsp;
+        <a href="https://www.youtube.com/@bustervd123">YouTube</a>
+      </p>
+      <p>Best viewed in Netscape Navigator 4.0 at 800x600</p>
+      <p class="retro-footer-small">You are visitor #??? &nbsp;|&nbsp; This site is always under construction</p>
+      <p class="retro-footer-small">&copy; 2026 Build My Site &nbsp;|&nbsp; Be a little weird. That's the point.</p>
+    </footer>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script type="module" src="assets/js/marquee.js?v=8"></script>
+  <script type="module" src="assets/js/random-button.js?v=8"></script>
+  <script type="module" src="assets/js/map.js?v=8"></script>
+</body>
+</html>

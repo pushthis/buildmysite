@@ -1,0 +1,14 @@
+{
+  "name": "buildmysite",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Community-editable website hosted on GitHub Pages",
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "validate": "node scripts/validate-pr.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

@@ -1,0 +1,29 @@
+name: Snapshot
+
+on:
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  snapshot:
+    name: snapshot-main
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Update snapshots branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan snapshots-temp
+          git add -A
+          git commit -m "snapshot: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          git branch -M snapshots
+          git push -f origin snapshots
